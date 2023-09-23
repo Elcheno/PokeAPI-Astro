@@ -15,7 +15,7 @@ const { page } = Astro.props;
 <Layout title="PokeDex">
     <main>
         <div class="header">
-            <img src="/header_logo/pokedex-img.png" alt="Logo for Header Section" width="400px">
+            <img src="/header_logo/pokedex-img.png" alt="Logo for Header Section" width="400px" height="65px">
         </div>
     
         <div class="parent">
@@ -23,14 +23,16 @@ const { page } = Astro.props;
                 page.data.map((pokemon: iPokemon) => 
                     <div class="parentNode">
                         <p>{"N.º "+pokemon.id}</p>
-                        <img src={pokemon.sprites.front_default} alt="">
+                        <div class="sprite">
+                            <img src={pokemon.sprites.front_default} alt="Pokemon sprite img" width="96px" height="96px">
+                        </div>
                         <h1>{pokemon.name}</h1>
                         <ul class="typesList">
                             {
                                 pokemon.types.map((tipos: iType) => 
                                     <li>
                                         {tipos.type.name}
-                                        <img src={"/typesIcons/" + tipos.type.name + ".png"} alt="Icono" width="22px">
+                                        <img src={"/typesIcons/" + tipos.type.name + ".png"} alt="Icono type" width="22px" height="22px">
                                     </li>  
                                     
                                 )
@@ -125,6 +127,10 @@ const { page } = Astro.props;
 
 
     @media screen and (min-width:100px){
+        .header img{
+            height: 48.75px;
+            width: 300px;
+        }
         .parent{
             width: 90%;
             grid-template-columns: repeat(1, 1fr);

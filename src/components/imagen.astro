@@ -1,0 +1,14 @@
+---
+
+interface Props {
+    src: string,
+    alt: string,
+    height: string,
+    width: string,
+    transitionName?: string
+}
+
+const{src, alt, height, width, transitionName} = Astro.props;
+---
+
+<img transition:name={transitionName} src={src} alt={alt} height={height} width={width}>

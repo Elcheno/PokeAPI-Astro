@@ -1,0 +1,94 @@
+---
+import Header from '../../components/header.astro'
+import {getPokeData, getOnePokeData} from '../../services/service.ts';
+import {type iPokemon} from '../../types/api.ts';
+import Layout from '../../layouts/Layout.astro';
+import Imagen from '../../components/imagen.astro'
+
+export async function getStaticPaths() {
+    const data = await getPokeData("https://pokeapi.co/api/v2/pokemon?limit=110&offset=0");
+    return data.map((pokemon:iPokemon) => {
+            return {params: {pokemon: pokemon.name}}
+        });
+}
+
+const { pokemon } = Astro.params;
+
+const pokeUrl = 'https://pokeapi.co/api/v2/pokemon/' + pokemon
+
+let data = await getOnePokeData(pokeUrl);
+---
+
+<Layout title='PokeData'>
+    <main>
+        <Header/>
+        <div class="parent">
+            <section class="pokeInfo">
+                <p>{"N.º "+data.id}</p>
+                <h1>{data.name}</h1>
+                <div>
+                    
+                </div>
+            </section>
+    
+            <section class="pokeImg">
+                <Imagen src={data.sprites.front_default} alt={'The Pokemon Sprite ' + data.name} width="400px" height="" transitionName={data.name}/>
+            </section>
+        </div>
+    </main>
+
+    
+    
+</Layout>
+
+
+<style>
+    main{
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .parent{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        justify-content: center;
+        align-content: center;
+        gap: 5rem;
+        padding: 5rem;
+    }
+    
+    .pokeImg, .pokeInfo{
+        background-color: rgba(255, 255, 255, 0.92);
+        border-radius: 25px;
+        height: 70vh;
+    }
+
+    .pokeImg{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pokeInfo{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content;
+        padding: 1rem;
+    }
+
+    .pokeInfo p{
+        width: 100%;
+        text-align: end;
+        font-weight: bold;
+    }
+
+    .pokeInfo h1{
+        text-align: center;
+        text-transform: capitalize;
+        font-size: 3.5rem;
+    }
+
+</style>

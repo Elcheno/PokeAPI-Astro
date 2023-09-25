@@ -4,7 +4,7 @@ import {getPokeData} from '../services/service.ts'
 import {type iPokemon} from '../types/api';
 
 
-const pokeData = await getPokeData()
+const pokeData = await getPokeData('https://pokeapi.co/api/v2/pokemon?limit=110&offset=0')
 ---
 
 <Layout title="Welcome to Astro.">

@@ -138,6 +138,14 @@ let data = await getOnePokeData(pokeUrl);
         grid-template-columns: 49% 49%;
     }
 
+    #statsParent div:nth-child(2){
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
     .parent{
         display: grid;
         grid-template-columns: repeat(2, 1fr);

@@ -20,7 +20,7 @@ const { page } = Astro.props;
 
         <Header/>
     
-        <div class="parent" transition:animate="slide">
+        <div class="parent" transition:animate="fade">
             {
                 page.data.map((pokemon: iPokemon) => 
                     <a href={'../pokemon/' + pokemon.name}>

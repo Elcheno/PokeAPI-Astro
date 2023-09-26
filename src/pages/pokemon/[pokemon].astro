@@ -1,7 +1,7 @@
 ---
 import Header from '../../components/header.astro'
 import {getPokeData, getOnePokeData} from '../../services/service.ts';
-import {type iPokemon, type iType, type iStat} from '../../types/api.ts';
+import {type iPokemon, type iType, type iStat, type iAbility} from '../../types/api.ts';
 import Layout from '../../layouts/Layout.astro';
 import Imagen from '../../components/imagen.astro'
 
@@ -41,9 +41,22 @@ let data = await getOnePokeData(pokeUrl);
 
                 <div class="">
                     <section>
-                        <p>{data.weight/10+" Kg."}</p>
-                        <p>{data.height/10+" m."}</p>
-                        <p>{data.base_experience+" pnt. base experience"}</p>
+                        <div>
+                            <h2>Peso</h2>
+                            <p>{data.weight/10+" Kg."}</p>
+                        </div>
+                        <div>
+                            <h2>Altura</h2>
+                            <p>{data.height/10+" m."}</p>
+                        </div>
+                        <ul>
+                            {data.abilities.map((ability:iAbility) => 
+                                <li>{ability.ability.name}</li>
+                            )}
+                        </ul>
+                    </section>
+
+                    <section>
                         <ul>
                             {
                                 data.stats.map((stat: iStat) => 
@@ -51,9 +64,7 @@ let data = await getOnePokeData(pokeUrl);
                                 )
                             }
                         </ul>
- 
                     </section>
-                    <section></section>
                 </div>
 
             </section>

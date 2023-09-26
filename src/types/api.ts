@@ -31,7 +31,7 @@ export type iPokemon = {
     weight:                   number;
 }
 
-export type Ability = {
+export type iAbility = {
     ability:   Species;
     is_hidden: boolean;
     slot:      number;

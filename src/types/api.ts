@@ -170,7 +170,7 @@ export type Other = {
     "official-artwork": OfficialArtwork;
 }
 
-export type Stat = {
+export type iStat = {
     base_stat: number;
     effort:    number;
     stat:      Species;

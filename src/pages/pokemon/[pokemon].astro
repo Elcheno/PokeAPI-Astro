@@ -1,7 +1,7 @@
 ---
 import Header from '../../components/header.astro'
 import {getPokeData, getOnePokeData} from '../../services/service.ts';
-import {type iPokemon} from '../../types/api.ts';
+import {type iPokemon, type iType, type iStat} from '../../types/api.ts';
 import Layout from '../../layouts/Layout.astro';
 import Imagen from '../../components/imagen.astro'
 
@@ -24,15 +24,42 @@ let data = await getOnePokeData(pokeUrl);
         <Header/>
         <div class="parent">
             <section class="pokeInfo">
+
                 <p>{"N.º "+data.id}</p>
                 <h1>{data.name}</h1>
-                <div>
-                    
+                <ul class="types">
+                    {
+                        data.types.map((type: iType) => 
+                            <li>
+                                <h2>{type.type.name}</h2>
+                                <Imagen src={"/typesIcons/" + type.type.name + ".png"} alt='Icono type' height='22px' width='22px'/>
+                            </li>
+
+                        )
+                    }
+                </ul>
+
+                <div class="">
+                    <section>
+                        <p>{data.weight/10+" Kg."}</p>
+                        <p>{data.height/10+" m."}</p>
+                        <p>{data.base_experience+" pnt. base experience"}</p>
+                        <ul>
+                            {
+                                data.stats.map((stat: iStat) => 
+                                    <li>{stat.stat.name+": "+stat.base_stat}</li>
+                                )
+                            }
+                        </ul>
+ 
+                    </section>
+                    <section></section>
                 </div>
+
             </section>
     
             <section class="pokeImg">
-                <Imagen src={data.sprites.front_default} alt={'The Pokemon Sprite ' + data.name} width="400px" height="" transitionName={data.name}/>
+                <Imagen src={data.sprites.other?.['official-artwork'].front_default} alt={'The Pokemon Sprite ' + data.name} width="300px" height="" transitionName={data.name}/>
             </section>
         </div>
     </main>

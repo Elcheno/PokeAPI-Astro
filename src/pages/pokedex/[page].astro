@@ -2,10 +2,13 @@
 import Layout from "../../layouts/Layout.astro";
 import {getPokeData} from '../../services/service.ts';
 import {type iPokemon, type iType} from '../../types/api.ts';
+import Header from '../../components/header.astro';
+import Controls from '../../components/controls.astro';
+import Imagen from '../../components/imagen.astro';
 
 
 export async function getStaticPaths({ paginate }) {
-    const data = await getPokeData()
+    const data = await getPokeData("https://pokeapi.co/api/v2/pokemon?limit=890&offset=0");
     return paginate(data, {pageSize: 20})
 }
 
@@ -14,17 +17,17 @@ const { page } = Astro.props;
 
 <Layout title="PokeDex">
     <main>
-        <div class="header">
-            <img src="/header_logo/pokedex-img.png" alt="Logo for Header Section" width="400px" height="65px">
-        </div>
+
+        <Header transition:persist/>
     
-        <div class="parent">
+        <div class="parent" transition:animate="fade">
             {
                 page.data.map((pokemon: iPokemon) => 
-                    <div class="parentNode">
+                    <a href={'../pokemon/' + pokemon.name}>
+                        <div class="parentNode">
                         <p>{"N.º "+pokemon.id}</p>
                         <div class="sprite">
-                            <img src={pokemon.sprites.front_default} alt="Pokemon sprite img" width="96px" height="96px">
+                            <Imagen src={pokemon.sprites.front_default} alt="Pokemon sprite img" width="96px" height="96px" transitionName={pokemon.name}/>
                         </div>
                         <h1>{pokemon.name}</h1>
                         <ul class="typesList">
@@ -33,27 +36,25 @@ const { page } = Astro.props;
                                     <li>
                                         {tipos.type.name}
                                         <img src={"/typesIcons/" + tipos.type.name + ".png"} alt="Icono type" width="22px" height="22px">
-                                    </li>  
+                                    </li>
                                     
                                 )
                             }
                         </ul>
                     </div>
+                    </a>
                 )
             }
         </div>
     
-        <div class="btnControls">
-            <a href={page.url.prev} class="btnBack"><i class="fa-solid fa-circle-chevron-left" style="color: #000000;"></i></a>
-            <a href={page.url.next} class="btnNext"><i class="fa-solid fa-circle-chevron-right" style="color: #000000;"></i></a>
-        </div>
+        <Controls prev={page.url.prev} next={page.url.next} transition:persist/>
     </main>
 </Layout>
 
 <style>
-    .header{
-        text-align: center;
-        margin-bottom: 1rem;
+
+    .sprite {
+        margin-top: -15px;
     }
 
     .parent {
@@ -61,6 +62,12 @@ const { page } = Astro.props;
         margin: auto;
         display: grid;
         gap: 1em;
+    }
+
+    a{
+        text-decoration: none;
+        color: black;
+        height: min-content;
     }
 
     .parentNode{
@@ -83,6 +90,8 @@ const { page } = Astro.props;
     .parentNode h1{
         text-transform: capitalize;
         font-size: 25px;
+        margin-top: -20px;
+        margin-bot: 20px;
     }
 
     .typesList{
@@ -98,33 +107,6 @@ const { page } = Astro.props;
         align-items: center;
         gap: 0.2rem;
     }
-
-    .btnControls{
-        margin: 2em 0rem;
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
-        gap: 4rem;
-    }
-
-    .btnControls a{
-        text-align: center;
-        width: 20px;
-        height: 20px;
-        scale: 2;
-        background-color: white;
-        border-radius: 150px;
-    }
-
-    .btnControls a i {
-        transition: scale 0.3s;
-    }
-
-    .btnControls a:hover i{
-        cursor: pointer;
-        scale: 1.29;
-    }
-
 
     @media screen and (min-width:100px){
         .header img{
@@ -151,6 +133,7 @@ const { page } = Astro.props;
             width: 80%;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(7, 1fr);
+            height: 80vh;
         }
 
     }

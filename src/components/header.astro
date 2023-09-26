@@ -1,0 +1,29 @@
+---
+interface Props {
+    align?: string
+}
+
+const {align} = Astro.props;
+
+const cp ='--align: ' + (align===undefined?'center':align);
+
+---
+
+<div class="header" style={cp}>
+    <img src="/header_logo/pokedex-img.png" alt="Logo for Header Section" width="400px" height="65px">
+</div>
+
+<style>
+    .header{
+        margin-top: 20px;
+        text-align: var(--align);
+        margin-bottom: 1rem;
+    }
+
+    @media screen and (max-width:700px){
+        img{
+            width: 250px;
+            height: 37px;
+        }
+    }
+</style>

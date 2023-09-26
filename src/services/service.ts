@@ -1,26 +1,28 @@
 import {type iResult, type iPokemon} from '../types/api';
 
-const urlDefault = "https://pokeapi.co/api/v2/pokemon?limit=110&offset=0"
-
-export const PokeAPI = async () => {
-    return await fetch(urlDefault)
-}
-
-export const PokeDataAPI = async (url: string) => {
+const PokeAPI = async (url: string) => {
     return await fetch(url)
 }
 
-export const PokeDataPromises = async () => {
-    const data = await PokeAPI().then(res => res.json()).then(response => response.results as iResult[])
+const PokeDataAPI = async (url: string) => {
+    return await fetch(url)
+}
+
+const PokeDataPromises = async (url: string) => {
+    const data = await PokeAPI(url).then(res => res.json()).then(response => response.results as iResult[])
     return data.map(async (poke: iResult) => {
         return await PokeDataAPI(poke.url).then(res => res.json()).then(response => response as iPokemon)
     })
 }
 
-export async function getPokeData() {
-    const res = await PokeDataPromises()
+export async function getPokeData(url: string) {
+    const res = await PokeDataPromises(url)
     return await Promise.all(res)
         .then(response => {
             return response
         })
+}
+
+export async function getOnePokeData(url: string) {
+    return await PokeAPI(url).then(res => res.json()) as iPokemon
 }

@@ -1,0 +1,219 @@
+---
+import Header from '../../components/header.astro'
+import {getPokeData, getOnePokeData} from '../../services/service.ts';
+import {type iPokemon, type iType, type iStat, type iAbility} from '../../types/api.ts';
+import Layout from '../../layouts/Layout.astro';
+import Imagen from '../../components/imagen.astro'
+
+export async function getStaticPaths() {
+    const data = await getPokeData("https://pokeapi.co/api/v2/pokemon?limit=890&offset=0");
+    return data.map((pokemon:iPokemon) => {
+            return {params: {pokemon: pokemon.name}}
+        });
+}
+
+const { pokemon } = Astro.params;
+
+const pokeUrl = 'https://pokeapi.co/api/v2/pokemon/' + pokemon
+
+let data = await getOnePokeData(pokeUrl);
+---
+
+<Layout title='PokeData'>
+    <main>
+        <Header/>
+        <div class="parent">
+            <section class="pokeInfo">
+
+                <p>{"N.º "+data.id}</p>
+                <h1>{data.name}</h1>
+                <div id="firstInfo">
+                    <section>
+                        <h2>Types:</h2>
+                        <div class="types">
+                            {
+                                data.types.map((type: iType) => 
+                                    <div class="type">
+                                        <h3>{type.type.name}</h3>
+                                        <Imagen src={"/typesIcons/" + type.type.name + ".png"} alt='Icono type' height='22px' width='22px'/>
+                                    </div>
+        
+                                )
+                            }
+                        </div>
+                    </section>
+                    
+                    <section id="measurements">
+                        <div>
+                            <h2>Peso:</h2>
+                            <h2>{data.weight/10+" Kg."}</h2>
+                        </div>
+                        <div>
+                            <h2>Altura:</h2>
+                            <h2>{data.height/10+" m."}</h2>
+                        </div>
+                    </section>
+                </div>
+                
+
+                    
+                <section id="statsParent">
+                    <div>
+                        <h2>Stats:</h2>
+                        {
+                            data.stats.map((stat: iStat) => 
+                                <h4>{stat.stat.name+": "+stat.base_stat}</h4>
+                            )
+                        }
+
+                    </div>
+                    <div>
+                        <h2>Habilities:</h2>
+                        {data.abilities.map((ability:iAbility) => 
+                            <h4>{ability.ability.name}</h4>
+                        )}
+
+                    </div>
+                </section>
+                    
+
+            </section>
+    
+            <section class="pokeImg">
+                <Imagen src={data.sprites.other?.['official-artwork'].front_default} alt={'The Pokemon Sprite ' + data.name} width="300px" height="" transitionName={data.name}/>
+            </section>
+        </div>
+
+        <div class="btnBackToHome">
+            <a href="javascript:history.back(-1);"><img src='../btnIcons/BackIcon.png' alt='Icon Button Back To Home' height='20px' width='20px' transition:persist/></a>
+        </div>
+    </main>
+
+    
+    
+</Layout>
+
+
+<style>
+    main{
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-content: center;
+    }
+
+    #firstInfo {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .types {
+        margin-top: 10px;
+        display: flex;
+        gap: 20px;
+    }
+
+    .type {
+        background-color: rgb(188, 188, 188);
+        padding: 4px 10px;
+        border-radius: 50px;
+        display: flex;
+        gap: 5px;
+    }
+
+    #measurements {
+        margin-top: 10px;
+    }
+
+    #measurements div{
+        display: grid;
+        grid-template-columns: 100px 100px;
+        gap: 20px;
+    }
+
+    #measurements div h2:nth-child(2){
+        text-align: end;
+    }
+
+    #statsParent {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 49% 49%;
+    }
+
+    #statsParent div:nth-child(2){
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .parent{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        justify-content: center;
+        align-content: center;
+        gap: 5rem;
+        padding: 5rem;
+    }
+    
+    .pokeImg, .pokeInfo{
+        background-color: rgba(255, 255, 255, 0.92);
+        border-radius: 25px;
+        /* height: 70vh; */
+    }
+
+    .pokeImg{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pokeInfo{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content;
+        padding: 1rem;
+    }
+
+    .pokeInfo p{
+        width: 100%;
+        text-align: end;
+        font-weight: bold;
+    }
+
+    .pokeInfo h1{
+        text-align: center;
+        text-transform: capitalize;
+        font-size: 3.5rem;
+    }
+
+    .btnBackToHome{
+        display: flex;
+        flex-direction: row nowrap;
+        justify-content: center;
+
+    }
+
+    .btnBackToHome a{
+        scale: 2;
+        background-color: white;
+        text-align: center;
+        border-radius: 150px;
+        user-select: none;
+        width: 20px;
+        height: 20px;
+    }
+
+    .btnBackToHome a img{
+        transition: scale 0.3s;
+    }
+
+    .btnBackToHome a:hover img{
+        scale: 1.29;
+    }
+
+</style>

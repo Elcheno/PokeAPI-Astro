@@ -1,44 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import {getPokeData} from '../services/service.ts'
-import {type iPokemon} from '../types/api';
-
-
-const pokeData = await getPokeData('https://pokeapi.co/api/v2/pokemon?limit=110&offset=0')
 ---
 
-<Layout title="Welcome to Astro.">
-	<a href="/pokedex/1">Poke</a>
-	<ul>
-		{
-			pokeData.map((pokemon: iPokemon) => 
-				<li>
-					<div>
-						<img src={pokemon.sprites.front_default} alt="">
-						<h1>{pokemon.name}</h1>
-					</div>
-				</li>
-			)
-		}
-	</ul>
-	
-</Layout>
+<Layout title="PokeDex"></Layout>
 
-<style>
-	ul{
-		list-style-type: none;
-		display: grid;
-		grid-template-columns: repeat(5, 1fr);
-		gap: 0.5em;
-		text-align: center;
-		margin: auto;
-		padding: 0px;
-		width: 50vw;
-	}
-
-	li{
-		text-transform: capitalize;
-		padding: 1em;
-		background-color: lightblue;
-	}
-</style>

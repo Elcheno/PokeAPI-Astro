@@ -57,6 +57,10 @@ const { page } = Astro.props;
         color: black;
     }
 
+    .sprite {
+        margin-top: -15px;
+    }
+
     .parent {
         display: grid;
         margin: auto;
@@ -84,6 +88,8 @@ const { page } = Astro.props;
     .parentNode h1{
         text-transform: capitalize;
         font-size: 25px;
+        margin-top: -20px;
+        margin-bot: 20px;
     }
 
     .typesList{
@@ -125,6 +131,7 @@ const { page } = Astro.props;
             width: 80%;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(7, 1fr);
+            height: 80vh;
         }
 
     }

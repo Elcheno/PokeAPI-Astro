@@ -1,24 +1,31 @@
 ---
 interface Props {
     prev: string,
-    next: string
+    next: string,
+    currentPage: number
 }
 
-const {prev, next} = Astro.props;
+const {prev, next, currentPage} = Astro.props;
 ---
 
 <div class="btnControls">
     <a href={prev} class="btnBack"><img src="/btnIcons/BackIcon.png" alt="The Icon to Back Button" width="20px" height="20px"></a>
+    <p>{currentPage}</p>
     <a href={next} class="btnNext"><img src="/btnIcons/NextIcon.png" alt="The Icon to Back Button" width="20px" height="20px"></a>
 </div>
 
 <style>
-        .btnControls{
-        margin: 2em 0rem;
+    .btnControls{
+        margin: 1.5em 0rem;
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
-        gap: 8rem;
+        gap: 5rem;
+    }
+
+    .btnControls p{
+        font-size: 1.5em;
+        color: white;
     }
 
     .btnControls a{

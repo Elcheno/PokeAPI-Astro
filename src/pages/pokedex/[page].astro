@@ -47,7 +47,7 @@ const { page } = Astro.props;
             }
         </div>
     
-        <Controls prev={page.url.prev} next={page.url.next} transition:persist/>
+        <Controls prev={page.url.prev} next={page.url.next} currentPage={page.currentPage} transition:persist/>
     </main>
 </Layout>
 
@@ -133,7 +133,6 @@ const { page } = Astro.props;
             width: 80%;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(7, 1fr);
-            height: 80vh;
         }
 
     }

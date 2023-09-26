@@ -22,71 +22,89 @@ let data = await getOnePokeData(pokeUrl);
 <Layout title='PokeData'>
     <main>
         <Header/>
-        <div class="parent">
-            <section class="pokeInfo">
 
-                <p>{"N.º "+data.id}</p>
-                <h1>{data.name}</h1>
-                <div id="firstInfo">
-                    <section>
-                        <h2>Types:</h2>
-                        <div class="types">
-                            {
-                                data.types.map((type: iType) => 
+        <section class="parent">
+
+            <div class="pokeInfo">
+
+                <h2 class="pokeId">{"N.º "+data.id}</h2>
+                <h1 class="pokeName">{data.name}</h1>
+
+                <section id="firstInfo">
+                    <div class="types">
+                        <h2>Types</h2>
+                        <div class="typesList">
+                            {data.types.map((type: iType) => 
                                     <div class="type">
                                         <h3>{type.type.name}</h3>
-                                        <Imagen src={"/typesIcons/" + type.type.name + ".png"} alt='Icono type' height='22px' width='22px'/>
+                                        <Imagen 
+                                        src={"/typesIcons/" + type.type.name + ".png"} 
+                                        alt='Icono type' 
+                                        height='22px' 
+                                        width='22px'/>
                                     </div>
-        
                                 )
                             }
                         </div>
-                    </section>
+                    </div>
                     
-                    <section id="measurements">
+                    <div id="measurements">
                         <div>
-                            <h2>Peso:</h2>
+                            <h2>Weight</h2>
                             <h2>{data.weight/10+" Kg."}</h2>
                         </div>
                         <div>
-                            <h2>Altura:</h2>
+                            <h2>Height</h2>
                             <h2>{data.height/10+" m."}</h2>
                         </div>
-                    </section>
-                </div>
+                    </div>
+
+                </section>
                 
 
                     
                 <section id="statsParent">
-                    <div>
-                        <h2>Stats:</h2>
-                        {
-                            data.stats.map((stat: iStat) => 
-                                <h4>{stat.stat.name+": "+stat.base_stat}</h4>
-                            )
-                        }
+                    <div class="stats">
+                        <h2>Stats</h2>
+                        <div class="statsList">
+                            {
+                                data.stats.map((stat: iStat) => 
+                                    <div class="stat">
+                                        <h3>{stat.stat.name+": "}</h3>
+                                        <h3>{stat.base_stat}</h3>
+                                    </div>
+                                )
+                            }
+                        </div>
 
                     </div>
-                    <div>
-                        <h2>Habilities:</h2>
-                        {data.abilities.map((ability:iAbility) => 
-                            <h4>{ability.ability.name}</h4>
-                        )}
 
+                    <div class="abilitys">
+                        <h2>Habilities</h2>
+                        <div class="abilityList">
+                            {data.abilities.map((ability:iAbility) => 
+                                <div>
+                                    <h3>{ability.ability.name}</h3>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </section>
                     
 
-            </section>
+            </div>
     
-            <section class="pokeImg">
-                <Imagen src={data.sprites.other?.['official-artwork'].front_default} alt={'The Pokemon Sprite ' + data.name} width="300px" height="" transitionName={data.name}/>
-            </section>
-        </div>
 
-        <div class="btnBackToHome">
+
+            <div class="pokeImg">
+                <Imagen src={data.sprites.other?.['official-artwork'].front_default} alt={'The Pokemon Sprite ' + data.name} width="300px" height="" transitionName={data.name}/>
+            </div>
+
+        </section>
+
+        <section class="btnBackToHome">
             <a href="javascript:history.back(-1);"><img src='../btnIcons/BackIcon.png' alt='Icon Button Back To Home' height='20px' width='20px' transition:persist/></a>
-        </div>
+        </section>
     </main>
 
     
@@ -105,12 +123,16 @@ let data = await getOnePokeData(pokeUrl);
     #firstInfo {
         margin-top: 20px;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
+    }
+    .types{
+        text-align: center;
     }
 
-    .types {
+    .typesList {
         margin-top: 10px;
         display: flex;
+        justify-content: space-around;
         gap: 20px;
     }
 
@@ -128,7 +150,7 @@ let data = await getOnePokeData(pokeUrl);
 
     #measurements div{
         display: grid;
-        grid-template-columns: 100px 100px;
+        grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
 
@@ -138,16 +160,56 @@ let data = await getOnePokeData(pokeUrl);
 
     #statsParent {
         margin-top: 20px;
-        display: grid;
-        grid-template-columns: 49% 49%;
+        display: flex;
+        justify-content: space-around;
     }
 
-    #statsParent div:nth-child(2){
+    .stats{
         display: flex;
         flex-flow: column;
         justify-content: center;
-        align-items: center;
+    }
 
+    .stats h2 {
+        text-align: center;
+    }
+
+    .statsList{
+        display: flex;
+        flex-flow: column;
+        row-gap: 6px;
+    }
+
+    .stat{
+        display: grid;
+        grid-template-columns: auto 15px;
+        column-gap: 8px;
+    }
+
+    .stat h3:first-child{
+        text-transform: capitalize;
+    }
+
+
+    .abilitys{
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .abilityList{
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 10px;
+    }
+
+    .abilityList div{
+        background-color: rgb(223, 223, 223);
+        border-radius: 25px;
+        padding: 10px 25px;
+        text-align: center;
+        text-transform: capitalize;
     }
 
     .parent{
@@ -177,15 +239,16 @@ let data = await getOnePokeData(pokeUrl);
         grid-template-columns: 1fr;
         grid-template-rows: min-content;
         padding: 1rem;
+        padding-bottom: 2.5rem;
     }
 
-    .pokeInfo p{
+    .pokeId{
         width: 100%;
         text-align: end;
         font-weight: bold;
     }
 
-    .pokeInfo h1{
+    .pokeName{
         text-align: center;
         text-transform: capitalize;
         font-size: 3.5rem;
@@ -195,6 +258,7 @@ let data = await getOnePokeData(pokeUrl);
         display: flex;
         flex-direction: row nowrap;
         justify-content: center;
+        margin-bottom: 4rem;
 
     }
 
@@ -214,6 +278,23 @@ let data = await getOnePokeData(pokeUrl);
 
     .btnBackToHome a:hover img{
         scale: 1.29;
+    }
+
+    @media screen and (max-width:700px){
+        #firstInfo{
+            flex-direction: column;
+        }
+
+        #statsParent{
+            flex-direction: column;
+        }
+    }
+
+    @media screen and (max-width:1024px){
+        .parent{
+            grid-template-columns: 1fr;
+            padding: 2rem 5rem;
+        }
     }
 
 </style>

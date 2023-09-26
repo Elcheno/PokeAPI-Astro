@@ -8,7 +8,7 @@ import Imagen from '../../components/imagen.astro';
 
 
 export async function getStaticPaths({ paginate }) {
-    const data = await getPokeData("https://pokeapi.co/api/v2/pokemon?limit=110&offset=0");
+    const data = await getPokeData("https://pokeapi.co/api/v2/pokemon?limit=890&offset=0");
     return paginate(data, {pageSize: 20})
 }
 
@@ -18,7 +18,7 @@ const { page } = Astro.props;
 <Layout title="PokeDex">
     <main>
 
-        <Header/>
+        <Header transition:persist/>
     
         <div class="parent" transition:animate="fade">
             {
@@ -47,15 +47,11 @@ const { page } = Astro.props;
             }
         </div>
     
-        <Controls prev={page.url.prev} next={page.url.next}/>
+        <Controls prev={page.url.prev} next={page.url.next} transition:persist/>
     </main>
 </Layout>
 
 <style>
-    a{
-        text-decoration: none;
-        color: black;
-    }
 
     .sprite {
         margin-top: -15px;
@@ -66,6 +62,12 @@ const { page } = Astro.props;
         margin: auto;
         display: grid;
         gap: 1em;
+    }
+
+    a{
+        text-decoration: none;
+        color: black;
+        height: min-content;
     }
 
     .parentNode{

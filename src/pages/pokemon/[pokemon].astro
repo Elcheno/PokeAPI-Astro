@@ -27,45 +27,55 @@ let data = await getOnePokeData(pokeUrl);
 
                 <p>{"N.º "+data.id}</p>
                 <h1>{data.name}</h1>
-                <ul class="types">
-                    {
-                        data.types.map((type: iType) => 
-                            <li>
-                                <h2>{type.type.name}</h2>
-                                <Imagen src={"/typesIcons/" + type.type.name + ".png"} alt='Icono type' height='22px' width='22px'/>
-                            </li>
-
-                        )
-                    }
-                </ul>
-
-                <div class="">
+                <div id="firstInfo">
                     <section>
-                        <div>
-                            <h2>Peso</h2>
-                            <p>{data.weight/10+" Kg."}</p>
-                        </div>
-                        <div>
-                            <h2>Altura</h2>
-                            <p>{data.height/10+" m."}</p>
-                        </div>
-                        <ul>
-                            {data.abilities.map((ability:iAbility) => 
-                                <li>{ability.ability.name}</li>
-                            )}
-                        </ul>
-                    </section>
-
-                    <section>
-                        <ul>
+                        <h2>Types:</h2>
+                        <div class="types">
                             {
-                                data.stats.map((stat: iStat) => 
-                                    <li>{stat.stat.name+": "+stat.base_stat}</li>
+                                data.types.map((type: iType) => 
+                                    <div class="type">
+                                        <h3>{type.type.name}</h3>
+                                        <Imagen src={"/typesIcons/" + type.type.name + ".png"} alt='Icono type' height='22px' width='22px'/>
+                                    </div>
+        
                                 )
                             }
-                        </ul>
+                        </div>
+                    </section>
+                    
+                    <section id="measurements">
+                        <div>
+                            <h2>Peso:</h2>
+                            <h2>{data.weight/10+" Kg."}</h2>
+                        </div>
+                        <div>
+                            <h2>Altura:</h2>
+                            <h2>{data.height/10+" m."}</h2>
+                        </div>
                     </section>
                 </div>
+                
+
+                    
+                <section id="statsParent">
+                    <div>
+                        <h2>Stats:</h2>
+                        {
+                            data.stats.map((stat: iStat) => 
+                                <h4>{stat.stat.name+": "+stat.base_stat}</h4>
+                            )
+                        }
+
+                    </div>
+                    <div>
+                        <h2>Habilities:</h2>
+                        {data.abilities.map((ability:iAbility) => 
+                            <h4>{ability.ability.name}</h4>
+                        )}
+
+                    </div>
+                </section>
+                    
 
             </section>
     
@@ -88,6 +98,46 @@ let data = await getOnePokeData(pokeUrl);
         align-content: center;
     }
 
+    #firstInfo {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .types {
+        margin-top: 10px;
+        display: flex;
+        gap: 20px;
+    }
+
+    .type {
+        background-color: rgb(188, 188, 188);
+        padding: 4px 10px;
+        border-radius: 50px;
+        display: flex;
+        gap: 5px;
+    }
+
+    #measurements {
+        margin-top: 10px;
+    }
+
+    #measurements div{
+        display: grid;
+        grid-template-columns: 100px 100px;
+        gap: 20px;
+    }
+
+    #measurements div h2:nth-child(2){
+        text-align: end;
+    }
+
+    #statsParent {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 49% 49%;
+    }
+
     .parent{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -101,7 +151,7 @@ let data = await getOnePokeData(pokeUrl);
     .pokeImg, .pokeInfo{
         background-color: rgba(255, 255, 255, 0.92);
         border-radius: 25px;
-        height: 70vh;
+        /* height: 70vh; */
     }
 
     .pokeImg{

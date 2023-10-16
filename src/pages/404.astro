@@ -1,0 +1,33 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/header.astro";
+---
+
+<Layout title="Pokedex">
+    <Header transition:persist />
+    <main>
+        <h2>¿Estas seguro de que este Pokemon existe?</h2>
+    </main>
+    
+
+    
+
+</Layout>
+
+<style>
+
+    main{
+        display: grid;
+        height: 50vh;
+        width: 100%;
+        justify-content: center;
+    }
+
+    h2{
+        align-self: center;
+        color: white;
+        text-wrap: wrap;
+        text-align: center;
+    }
+
+</style>

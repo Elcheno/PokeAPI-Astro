@@ -1,12 +1,14 @@
 ---
 import Header from '../../components/header.astro'
-import {getPokeData, getOnePokeData} from '../../services/service.ts';
+import {getPokeData, getOnePokeData, getLimitURL} from '../../services/service.ts';
 import {type iPokemon, type iType, type iStat, type iAbility} from '../../types/api.ts';
 import Layout from '../../layouts/Layout.astro';
 import Imagen from '../../components/imagen.astro'
 
 export async function getStaticPaths() {
-    const data = await getPokeData("https://pokeapi.co/api/v2/pokemon?limit=890&offset=0");
+    const limitAPI:number = getLimitURL();
+    const url:string = "https://pokeapi.co/api/v2/pokemon?limit="+limitAPI+"&offset=0";
+    const data = await getPokeData(url);
     return data.map((pokemon:iPokemon) => {
             return {params: {pokemon: pokemon.name}}
         });

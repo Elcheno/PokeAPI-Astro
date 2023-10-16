@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import {getPokeData} from '../../services/service.ts';
+import {getPokeData, getLimitURL} from '../../services/service.ts';
 import {type iPokemon, type iType} from '../../types/api.ts';
 import Header from '../../components/header.astro';
 import Controls from '../../components/controls.astro';
@@ -8,7 +8,9 @@ import Imagen from '../../components/imagen.astro';
 
 
 export async function getStaticPaths({ paginate }) {
-    const data = await getPokeData("https://pokeapi.co/api/v2/pokemon?limit=890&offset=0");
+    const limitAPI:number = getLimitURL();
+    const url:string = "https://pokeapi.co/api/v2/pokemon?limit="+limitAPI+"&offset=0";
+    const data = await getPokeData(url);
     return paginate(data, {pageSize: 20})
 }
 

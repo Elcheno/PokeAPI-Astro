@@ -5,13 +5,50 @@ export type iPokeAPI = {
     results:  iResult[];
 }
 
+export type iPokeTypeData = {
+    damageRelations:     iDamageRelations;
+    gameIndices:         GameIndex[];
+    generation:          iGeneration;
+    id:                  number;
+    moveDamageClass:     iGeneration;
+    moves:               iGeneration[];
+    name:                string;
+    names:               iName[];
+    pastDamageRelations: any[];
+    pokemon:             iPokemonData[];
+}
+
+export type iDamageRelations = {
+    doubleDamageFrom: iGeneration[];
+    doubleDamageTo:   iGeneration[];
+    halfDamageFrom:   iGeneration[];
+    halfDamageTo:     iGeneration[];
+    noDamageFrom:     any[];
+    noDamageTo:       any[];
+}
+
+export type iGeneration = {
+    name: string;
+    url:  string;
+}
+
+export type iName = {
+    language: iGeneration;
+    name:     string;
+}
+
+export type iPokemonData = {
+    pokemon: iGeneration;
+    slot:    number;
+}
+
 export type iResult = {
     name: string;
     url:  string;
 }
 
 export type iPokemon = {
-    abilities:                Ability[];
+    abilities:                iAbility[];
     base_experience:          number;
     forms:                    Species[];
     game_indices:             GameIndex[];
@@ -26,7 +63,7 @@ export type iPokemon = {
     past_types:               any[];
     species:                  Species;
     sprites:                  Sprites;
-    stats:                    Stat[];
+    stats:                    iStat[];
     types:                    iType[];
     weight:                   number;
 }

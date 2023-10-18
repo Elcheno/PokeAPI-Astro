@@ -1,0 +1,44 @@
+---
+import Imagen from '../components/imagen.astro';
+
+interface Props {
+    text:string,
+    img:string,
+}
+
+const { text, img } = Astro.props;
+---
+
+<a href={'/pokedex/'+text+'/1'}>
+    <div class="iconType">    
+        <img 
+        src={img} 
+        alt="Type img icon " 
+        width="25px" 
+        height="25px"
+        />
+    </div>
+    <p>{text}</p>
+</a>
+
+<style>
+    a{
+        background-color: white;
+        color: black;
+        border-radius: 8px;
+        padding: 5px 15px;
+        text-decoration: none;
+        font-weight: bold;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-content: center;
+        column-gap: 0.3em;
+    }
+
+    p, .iconType{
+        display: flex;
+        text-align: center;
+        align-items: center;
+    }
+</style>

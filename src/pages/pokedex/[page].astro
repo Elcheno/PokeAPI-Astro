@@ -1,11 +1,11 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import {getPokeData, getLimitURL} from '../../services/service.ts';
-import {type iPokemon, type iType} from '../../types/api.ts';
+import {getPokeData, getLimitURL, getTypes} from '../../services/service';
+import {type iPokemon, type iType} from '../../types/api';
 import Header from '../../components/header.astro';
 import Controls from '../../components/controls.astro';
 import Imagen from '../../components/imagen.astro';
-
+import BtnFilterTypeList from '../../components/btnFilterTypeList.astro';
 
 export async function getStaticPaths({ paginate }) {
     const limitAPI:number = getLimitURL();
@@ -21,6 +21,8 @@ const { page } = Astro.props;
     <main>
 
         <Header transition:persist/>
+
+        <BtnFilterTypeList/>
     
         <div class="parent" transition:animate="fade">
             {
@@ -54,6 +56,15 @@ const { page } = Astro.props;
 </Layout>
 
 <style>
+    .btnFilterTypes{
+        width: 90vw;
+        margin: 2rem auto 2rem auto;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        column-gap: 1em;
+        row-gap: 0.5em;
+    }
 
     .sprite {
         margin-top: -15px;

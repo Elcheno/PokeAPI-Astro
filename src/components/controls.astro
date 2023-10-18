@@ -8,13 +8,48 @@ interface Props {
 const {prev, next, currentPage} = Astro.props;
 ---
 
-<div class="btnControls">
-    <a href={prev} class="btnBack"><img src="/btnIcons/BackIcon.png" alt="The Icon to Back Button" width="20px" height="20px"></a>
-    <p>{currentPage}</p>
-    <a href={next} class="btnNext"><img src="/btnIcons/NextIcon.png" alt="The Icon to Back Button" width="20px" height="20px"></a>
+<div class="parent">
+    <div class="btnControls">
+        <a href={prev} class="btnBack"><img src="/btnIcons/BackIcon.png" alt="The Icon to Back Button" width="20px" height="20px"></a>
+        <p>{currentPage}</p>
+        <a href={next} class="btnNext"><img src="/btnIcons/NextIcon.png" alt="The Icon to Back Button" width="20px" height="20px"></a>
+    </div>
+    <div class="btnHome">
+        <a href="/pokedex/1"><img src="/btnIcons/HomeIcon.png" alt="the Icon to go Home button" width="16px" height="16px"></a>
+    </div>
 </div>
 
 <style>
+    .parent{
+        margin-bottom: 1.5rem;
+    }
+    
+    .btnHome{
+        display: flex;
+        justify-content: center;
+    }
+
+    .btnHome a{
+        scale: 2;
+        background-color: white;
+        text-align: center;
+        border-radius: 150px;
+        user-select: none;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btnHome a img{
+        transition: scale 0.3s;
+    }
+
+    .btnHome a:hover img{
+        scale: 1.15;
+    }
+
     .btnControls{
         margin: 1.5em 0rem;
         display: flex;
@@ -28,7 +63,7 @@ const {prev, next, currentPage} = Astro.props;
         color: white;
     }
 
-    .btnControls a{
+    .btnControls a, .btnHome a{
         text-align: center;
         width: 20px;
         height: 20px;
@@ -38,7 +73,7 @@ const {prev, next, currentPage} = Astro.props;
         user-select: none;
     }
 
-    .btnControls a img {
+    .btnControls a img{
         transition: scale 0.3s;
     }
 

@@ -1,0 +1,29 @@
+---
+import {getTypes} from '../services/service';
+import BtnFilterType from '../components/btnFilterType.astro';
+
+let types:string[] = getTypes();
+---
+
+<div class="btnFilterTypes">
+    {
+        types.map((type:string) => 
+            <BtnFilterType 
+                text={type} 
+                img={"../../typesIcons/"+type+".png"}
+            />
+        )
+    }
+</div>
+
+<style>
+    .btnFilterTypes{
+        width: 90vw;
+        margin: 1rem auto 1rem auto;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        column-gap: 1em;
+        row-gap: 0.5em;
+    }
+</style>

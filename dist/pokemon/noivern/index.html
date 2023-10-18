@@ -1,55 +1,20 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="description" content="Astro description"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="../icons/favicon.svg"><meta name="generator" content="Astro v3.1.2"><title>PokeData</title><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><style>.header[data-astro-cid-hpnw4vwy]{text-align:var(--align);margin-bottom:1rem}.header[data-astro-cid-hpnw4vwy] img[data-astro-cid-hpnw4vwy]{margin-top:20px}@media screen and (max-width:700px){img[data-astro-cid-hpnw4vwy]{width:250px;height:37px}}@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0}}@keyframes astroFadeOut{to{opacity:0}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="description" content="Astro description"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="../icons/favicon.svg"><meta name="generator" content="Astro v3.1.4"><title>PokeData</title><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><style>.header[data-astro-cid-hpnw4vwy]{text-align:var(--align);margin-bottom:1rem}.header[data-astro-cid-hpnw4vwy] img[data-astro-cid-hpnw4vwy]{margin-top:20px}@media screen and (max-width:700px){img[data-astro-cid-hpnw4vwy]{width:250px;height:37px}}
 *,:after,*:before{margin:0;padding:0;box-sizing:border-box}html{font-family:Century Gothic,system-ui}body{max-width:100vw;background-color:#000000bf}
+@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0}}@keyframes astroFadeOut{to{opacity:0}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
 main[data-astro-cid-3yv5qouu]{display:flex;flex-flow:column nowrap;justify-content:center;align-content:center}#firstInfo[data-astro-cid-3yv5qouu]{margin-top:20px;display:flex;justify-content:space-around}.types[data-astro-cid-3yv5qouu]{text-align:center}.typesList[data-astro-cid-3yv5qouu]{margin-top:10px;display:flex;justify-content:space-around;gap:20px}.type[data-astro-cid-3yv5qouu]{background-color:#bcbcbc;padding:4px 10px;border-radius:50px;display:flex;gap:5px}#measurements[data-astro-cid-3yv5qouu]{margin-top:10px}#measurements[data-astro-cid-3yv5qouu] div[data-astro-cid-3yv5qouu]{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}#measurements[data-astro-cid-3yv5qouu] div[data-astro-cid-3yv5qouu] h2[data-astro-cid-3yv5qouu]:nth-child(2){text-align:end}#statsParent[data-astro-cid-3yv5qouu]{margin-top:20px;display:flex;justify-content:space-around}.stats[data-astro-cid-3yv5qouu]{display:flex;flex-flow:column;justify-content:center}.stats[data-astro-cid-3yv5qouu] h2[data-astro-cid-3yv5qouu]{text-align:center}.statsList[data-astro-cid-3yv5qouu]{display:flex;flex-flow:column;row-gap:6px}.stat[data-astro-cid-3yv5qouu]{display:grid;grid-template-columns:auto 15px;column-gap:8px}.stat[data-astro-cid-3yv5qouu] h3[data-astro-cid-3yv5qouu]:first-child{text-transform:capitalize}.abilitys[data-astro-cid-3yv5qouu]{display:flex;flex-flow:column;align-items:center;gap:10px}.abilityList[data-astro-cid-3yv5qouu]{display:flex;flex-flow:column nowrap;gap:10px}.abilityList[data-astro-cid-3yv5qouu] div[data-astro-cid-3yv5qouu]{background-color:#dfdfdf;border-radius:25px;padding:10px 25px;text-align:center;text-transform:capitalize}.parent[data-astro-cid-3yv5qouu]{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:auto;justify-content:center;align-content:center;gap:5rem;padding:5rem}.pokeImg[data-astro-cid-3yv5qouu],.pokeInfo[data-astro-cid-3yv5qouu]{background-color:#ffffffeb;border-radius:25px}.pokeImg[data-astro-cid-3yv5qouu]{display:flex;justify-content:center;align-items:center}.pokeInfo[data-astro-cid-3yv5qouu]{display:grid;grid-template-columns:1fr;grid-template-rows:min-content;padding:1rem 1rem 2.5rem}.pokeId[data-astro-cid-3yv5qouu]{width:100%;text-align:end;font-weight:700}.pokeName[data-astro-cid-3yv5qouu]{text-align:center;text-transform:capitalize;font-size:3.5rem}.btnBackToHome[data-astro-cid-3yv5qouu]{display:flex;flex-direction:row nowrap;justify-content:center;margin-bottom:4rem}.btnBackToHome[data-astro-cid-3yv5qouu] a[data-astro-cid-3yv5qouu]{scale:2;background-color:#fff;text-align:center;border-radius:150px;user-select:none;width:20px;height:20px}.btnBackToHome[data-astro-cid-3yv5qouu] a[data-astro-cid-3yv5qouu] img[data-astro-cid-3yv5qouu]{transition:scale .3s}.btnBackToHome[data-astro-cid-3yv5qouu] a[data-astro-cid-3yv5qouu]:hover img[data-astro-cid-3yv5qouu]{scale:1.29}@media screen and (max-width:700px){#firstInfo[data-astro-cid-3yv5qouu],#statsParent[data-astro-cid-3yv5qouu]{flex-direction:column}}@media screen and (max-width:1024px){.parent[data-astro-cid-3yv5qouu]{grid-template-columns:1fr;padding:2rem 5rem}}
-</style><script type="module" src="/_astro/hoisted.ad8917a4.js"></script><style>[data-astro-transition-scope="astro-kty7qgif-2"] { view-transition-name: astro-kty7qgif-2; }@layer astro { ::view-transition-old(astro-kty7qgif-2) { 
+</style><script type="module" src="/_astro/hoisted.3a356783.js"></script><style>[data-astro-transition-scope="astro-kty7qgif-3"] { view-transition-name: astro-kty7qgif-3; }@layer astro { ::view-transition-old(astro-kty7qgif-3) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }::view-transition-new(astro-kty7qgif-2) { 
+	animation-name: astroFadeOut; }::view-transition-new(astro-kty7qgif-3) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(astro-kty7qgif-2) { 
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(astro-kty7qgif-3) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(astro-kty7qgif-2) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-kty7qgif-2"],
-			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-kty7qgif-2"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-kty7qgif-2"],
-			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-kty7qgif-2"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-kty7qgif-2"],
-			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-kty7qgif-2"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-kty7qgif-2"],
-			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-kty7qgif-2"] { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-kty7qgif-3"] { view-transition-name: noivern; }@layer astro { ::view-transition-old(noivern) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }::view-transition-new(noivern) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(noivern) { 
-	animation-duration: 180ms;
-	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
-	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(noivern) { 
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(astro-kty7qgif-3) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
@@ -73,19 +38,19 @@ main[data-astro-cid-3yv5qouu]{display:flex;flex-flow:column nowrap;justify-conte
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-kty7qgif-4"] { view-transition-name: astro-kty7qgif-4; }@layer astro { ::view-transition-old(astro-kty7qgif-4) { 
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-kty7qgif-4"] { view-transition-name: noivern; }@layer astro { ::view-transition-old(noivern) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }::view-transition-new(astro-kty7qgif-4) { 
+	animation-name: astroFadeOut; }::view-transition-new(noivern) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(astro-kty7qgif-4) { 
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(noivern) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(astro-kty7qgif-4) { 
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(noivern) { 
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
@@ -109,4 +74,40 @@ main[data-astro-cid-3yv5qouu]{display:flex;flex-flow:column nowrap;justify-conte
 	animation-duration: 180ms;
 	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
 	animation-fill-mode: both;
-	animation-name: astroFadeIn; }</style></head><body><main data-astro-cid-3yv5qouu><header class="header" style="--align: center" data-astro-cid-hpnw4vwy><img src="/header_logo/pokedex-img.png" alt="Logo for Header Section" width="400px" height="65px" data-astro-cid-hpnw4vwy></header><section class="parent" data-astro-cid-3yv5qouu><div class="pokeInfo" data-astro-cid-3yv5qouu><h2 class="pokeId" data-astro-cid-3yv5qouu>N.º 715</h2><h1 class="pokeName" data-astro-cid-3yv5qouu>noivern</h1><section id="firstInfo" data-astro-cid-3yv5qouu><div class="types" data-astro-cid-3yv5qouu><h2 data-astro-cid-3yv5qouu>Types</h2><div class="typesList" data-astro-cid-3yv5qouu><div class="type" data-astro-cid-3yv5qouu><h3 data-astro-cid-3yv5qouu>flying</h3><img src="/typesIcons/flying.png" alt="Icono type" height="22px" width="22px" data-astro-transition-scope="astro-kty7qgif-2"></div><div class="type" data-astro-cid-3yv5qouu><h3 data-astro-cid-3yv5qouu>dragon</h3><img src="/typesIcons/dragon.png" alt="Icono type" height="22px" width="22px" data-astro-transition-scope="astro-kty7qgif-4"></div></div></div><div id="measurements" data-astro-cid-3yv5qouu><div data-astro-cid-3yv5qouu><h2 data-astro-cid-3yv5qouu>Weight</h2><h2 data-astro-cid-3yv5qouu>85 Kg.</h2></div><div data-astro-cid-3yv5qouu><h2 data-astro-cid-3yv5qouu>Height</h2><h2 data-astro-cid-3yv5qouu>1.5 m.</h2></div></div></section><section id="statsParent" data-astro-cid-3yv5qouu><div class="stats" data-astro-cid-3yv5qouu><h2 data-astro-cid-3yv5qouu>Stats</h2><div class="statsList" data-astro-cid-3yv5qouu><div class="stat" data-astro-cid-3yv5qouu><h3 data-astro-cid-3yv5qouu>hp: </h3><h3 data-astro-cid-3yv5qouu>85</h3></div><div class="stat" data-astro-cid-3yv5qouu><h3 data-astro-cid-3yv5qouu>attack: </h3><h3 data-astro-cid-3yv5qouu>70</h3></div><div class="stat" data-astro-cid-3yv5qouu><h3 data-astro-cid-3yv5qouu>defense: </h3><h3 data-astro-cid-3yv5qouu>80</h3></div><div class="stat" data-astro-cid-3yv5qouu><h3 data-astro-cid-3yv5qouu>special-attack: </h3><h3 data-astro-cid-3yv5qouu>97</h3></div><div class="stat" data-astro-cid-3yv5qouu><h3 data-astro-cid-3yv5qouu>special-defense: </h3><h3 data-astro-cid-3yv5qouu>80</h3></div><div class="stat" data-astro-cid-3yv5qouu><h3 data-astro-cid-3yv5qouu>speed: </h3><h3 data-astro-cid-3yv5qouu>123</h3></div></div></div><div class="abilitys" data-astro-cid-3yv5qouu><h2 data-astro-cid-3yv5qouu>Habilities</h2><div class="abilityList" data-astro-cid-3yv5qouu><div data-astro-cid-3yv5qouu><h3 data-astro-cid-3yv5qouu>frisk</h3></div><div data-astro-cid-3yv5qouu><h3 data-astro-cid-3yv5qouu>infiltrator</h3></div><div data-astro-cid-3yv5qouu><h3 data-astro-cid-3yv5qouu>telepathy</h3></div></div></div></section></div><div class="pokeImg" data-astro-cid-3yv5qouu><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/715.png" alt="The Pokemon Sprite noivern" height="" width="300px" data-astro-transition-scope="astro-kty7qgif-3"></div></section><section class="btnBackToHome" data-astro-cid-3yv5qouu><a href="javascript:history.back(-1);" data-astro-cid-3yv5qouu><img src="../btnIcons/BackIcon.png" alt="Icon Button Back To Home" height="20px" width="20px" data-astro-cid-3yv5qouu data-astro-transition-persist="astro-mw6bsynm-1"></a></section></main></body></html>
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-kty7qgif-5"] { view-transition-name: astro-kty7qgif-5; }@layer astro { ::view-transition-old(astro-kty7qgif-5) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(astro-kty7qgif-5) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(astro-kty7qgif-5) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(astro-kty7qgif-5) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-kty7qgif-5"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-kty7qgif-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-kty7qgif-5"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-kty7qgif-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-kty7qgif-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-kty7qgif-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-kty7qgif-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-kty7qgif-5"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style></head><body><main data-astro-cid-3yv5qouu><header class="header" style="--align: center" data-astro-cid-hpnw4vwy><img src="/header_logo/pokedex-img.png" alt="Logo for Header Section" width="400px" height="65px" data-astro-cid-hpnw4vwy></header><section class="parent" data-astro-cid-3yv5qouu><div class="pokeInfo" data-astro-cid-3yv5qouu><h2 class="pokeId" data-astro-cid-3yv5qouu>N.º 715</h2><h1 class="pokeName" data-astro-cid-3yv5qouu>noivern</h1><section id="firstInfo" data-astro-cid-3yv5qouu><div class="types" data-astro-cid-3yv5qouu><h2 data-astro-cid-3yv5qouu>Types</h2><div class="typesList" data-astro-cid-3yv5qouu><div class="type" data-astro-cid-3yv5qouu><h3 data-astro-cid-3yv5qouu>flying</h3><img src="/typesIcons/flying.png" alt="Icono type" height="22px" width="22px" data-astro-transition-scope="astro-kty7qgif-3"></div><div class="type" data-astro-cid-3yv5qouu><h3 data-astro-cid-3yv5qouu>dragon</h3><img src="/typesIcons/dragon.png" alt="Icono type" height="22px" width="22px" data-astro-transition-scope="astro-kty7qgif-5"></div></div></div><div id="measurements" data-astro-cid-3yv5qouu><div data-astro-cid-3yv5qouu><h2 data-astro-cid-3yv5qouu>Weight</h2><h2 data-astro-cid-3yv5qouu>85 Kg.</h2></div><div data-astro-cid-3yv5qouu><h2 data-astro-cid-3yv5qouu>Height</h2><h2 data-astro-cid-3yv5qouu>1.5 m.</h2></div></div></section><section id="statsParent" data-astro-cid-3yv5qouu><div class="stats" data-astro-cid-3yv5qouu><h2 data-astro-cid-3yv5qouu>Stats</h2><div class="statsList" data-astro-cid-3yv5qouu><div class="stat" data-astro-cid-3yv5qouu><h3 data-astro-cid-3yv5qouu>hp: </h3><h3 data-astro-cid-3yv5qouu>85</h3></div><div class="stat" data-astro-cid-3yv5qouu><h3 data-astro-cid-3yv5qouu>attack: </h3><h3 data-astro-cid-3yv5qouu>70</h3></div><div class="stat" data-astro-cid-3yv5qouu><h3 data-astro-cid-3yv5qouu>defense: </h3><h3 data-astro-cid-3yv5qouu>80</h3></div><div class="stat" data-astro-cid-3yv5qouu><h3 data-astro-cid-3yv5qouu>special-attack: </h3><h3 data-astro-cid-3yv5qouu>97</h3></div><div class="stat" data-astro-cid-3yv5qouu><h3 data-astro-cid-3yv5qouu>special-defense: </h3><h3 data-astro-cid-3yv5qouu>80</h3></div><div class="stat" data-astro-cid-3yv5qouu><h3 data-astro-cid-3yv5qouu>speed: </h3><h3 data-astro-cid-3yv5qouu>123</h3></div></div></div><div class="abilitys" data-astro-cid-3yv5qouu><h2 data-astro-cid-3yv5qouu>Habilities</h2><div class="abilityList" data-astro-cid-3yv5qouu><div data-astro-cid-3yv5qouu><h3 data-astro-cid-3yv5qouu>frisk</h3></div><div data-astro-cid-3yv5qouu><h3 data-astro-cid-3yv5qouu>infiltrator</h3></div><div data-astro-cid-3yv5qouu><h3 data-astro-cid-3yv5qouu>telepathy</h3></div></div></div></section></div><div class="pokeImg" data-astro-cid-3yv5qouu><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/715.png" alt="The Pokemon Sprite noivern" height="" width="300px" data-astro-transition-scope="astro-kty7qgif-4"></div></section><section class="btnBackToHome" data-astro-cid-3yv5qouu><a href="javascript:history.back(-1);" data-astro-cid-3yv5qouu><img src="../btnIcons/BackIcon.png" alt="Icon Button Back To Home" height="20px" width="20px" data-astro-cid-3yv5qouu data-astro-transition-persist="astro-mw6bsynm-2"></a></section></main></body></html>

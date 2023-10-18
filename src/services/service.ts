@@ -1,6 +1,6 @@
-import {type iResult, type iPokemon} from '../types/api';
+import {type iResult, type iPokemon, type iPokeTypeData, type iPokemonData} from '../types/api';
 
-const limitURL:number = 100;
+const limitURL:number = 890;
 
 const PokeAPI = async (url: string) => {
     return await fetch(url)
@@ -31,4 +31,10 @@ export async function getOnePokeData(url: string) {
 
 export function getLimitURL():number {
     return limitURL;
+}
+
+export function getTypes(){
+    return ['grass', 'water', 'fire', 'poison', 'flying', 'bug', 
+    'normal', 'dark', 'dragon', 'electric', 'fairy', 'fighting',
+     'ghost', 'ground', 'ice', 'psychic', 'rock', 'steel'];
 }
